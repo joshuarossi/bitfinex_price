@@ -1,6 +1,6 @@
 Package.describe({
   name: 'mjr:bitfinex-price',
-  version: '0.0.2',
+  version: '0.0.3',
   // Brief, one-line summary of the package.
   summary: 'simple app to give live updating bitfinex bitcoin prices',
   // URL to the Git repository containing the source code for this package.
@@ -15,7 +15,7 @@ Package.onUse(function(api) {
   api.export('Bitfinex');
   api.export('bitcoinPrice');
   api.addFiles(['bitfinex-price.js']);
-  api.addFiles(['server/bitfinex_price'], "server");
+  api.addFiles(['server/bitfinex_price.js'], "server");
   api.use(['minimongo', 'mongo-livedata', 'templating'], 'client');
   api.use(['meteor-platform']);
 api.add_files(["client/template.js", "client/template.html"], "client");

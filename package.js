@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.addFiles(['server/bitfinex_price.js'], "server");
   api.use(['minimongo', 'mongo-livedata', 'templating'], 'client');
   api.use(['meteor-platform']);
-api.add_files(["client/template.js", "client/template.html"], "client");
+  api.add_files(["client/template.js", "client/template.html"], "client");
 });
 
 Package.onTest(function(api) {

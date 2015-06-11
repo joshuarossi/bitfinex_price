@@ -1,6 +1,6 @@
 bitcoinPrice = new Mongo.Collection('bitcoin_price');
 Bitfinex = function(){
-  message = {}
+  message = {};
 	this.url = 'ws://websocket.bitfinex.com:8086/WSGateway/';
 	this.WebSocketClient = Npm.require('websocket').client;
 	this.client = new this.WebSocketClient();

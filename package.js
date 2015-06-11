@@ -14,7 +14,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.export('Bitfinex');
   api.export('bitcoinPrice');
-  api.addFiles('bitfinex-price.js');
+  api.addFiles(['bitfinex-price.js']);
+  api.addFiles(['server/bitfinex_price'], "server");
   api.use(['minimongo', 'mongo-livedata', 'templating'], 'client');
   api.use(['meteor-platform']);
 api.add_files(["client/template.js", "client/template.html"], "client");

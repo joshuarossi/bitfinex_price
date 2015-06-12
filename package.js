@@ -1,6 +1,6 @@
 Package.describe({
   name: 'mjr:bitfinex-price',
-  version: '0.0.3',
+  version: '0.0.4',
   // Brief, one-line summary of the package.
   summary: 'simple app to give live updating bitfinex BTCUSD prices',
   // URL to the Git repository containing the source code for this package.
@@ -17,9 +17,8 @@ Package.onUse(function(api) {
   api.addFiles(['common.js']);
   api.addFiles(['server/bitfinex_publish.js', 'bitfinex-price.js'], "server");
   api.add_files(["client/template.js", "client/template.html"], "client");
-  api.export("bitfinexPriceCollection");
+  api.export(["bitfinexPriceCollection", "bitfinex_price"]);
   api.export(["Bitfinex"], "server");
-  api.export(["bitfinex_price_feed"], "client");
 });
 
 Package.onTest(function(api) {

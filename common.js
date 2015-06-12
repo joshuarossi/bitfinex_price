@@ -1,0 +1,1 @@
+bitfinexPriceCollection = new Mongo.Collection('bitfinex_price');

@@ -1,4 +1,3 @@
-bitcoinPrice = new Mongo.Collection('bitcoin_price');
 Bitfinex = function(){
   message = {};
 	this.url = 'ws://websocket.bitfinex.com:8086/WSGateway/';
@@ -8,7 +7,7 @@ Bitfinex = function(){
     message = JSON.parse(message.utf8Data);
     message = message.o.replace(/([a-zA-Z]+)/g,'"$1"');
     message = JSON.parse(message);
-    bitcoinPrice.upsert({'_id':'a'}, {$set: {'bitcoin_price': message.BestOffer}});
+    bitfinexPriceCollection.upsert({'_id':'a'}, {$set: {'bitcoin_price': message.BestOffer}});
     _this.bitcoin_price = message.BestOffer;
     _this.message = message;
   });
@@ -48,4 +47,7 @@ Bitfinex = function(){
     this.client.connect(this.url)
     };
 };
+bfx = new Bitfinex();
+bfx.connect();
+Meteor.setTimeout(bfx.subscribeLevelOne, 2000);
 

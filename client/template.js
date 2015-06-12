@@ -1,5 +1,5 @@
-Template.registerHelper('bitcoin_price', function () {
-  var a = bitcoinPrice.findOne({_id: 'a'});
+Template.registerHelper('bitfinex_price_helper', function () {
+  var a = bitfinexPriceCollection.findOne({_id: 'a'});
   return a && a.bitcoin_price;
 });
-Meteor.subscribe('bitfinex_price ');
+bitfinex_subscription = Meteor.subscribe('bitfinex_price_feed');

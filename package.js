@@ -2,7 +2,7 @@ Package.describe({
   name: 'mjr:bitfinex-price',
   version: '0.0.3',
   // Brief, one-line summary of the package.
-  summary: 'simple app to give live updating bitfinex bitcoin prices',
+  summary: 'simple app to give live updating bitfinex BTCUSD prices',
   // URL to the Git repository containing the source code for this package.
   git: '',
   // By default, Meteor will default to using README.md for documentation.
@@ -12,13 +12,14 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.export('Bitfinex');
-  api.export('bitcoinPrice');
-  api.addFiles(['bitfinex-price.js']);
-  api.addFiles(['server/bitfinex_price.js'], "server");
   api.use(['minimongo', 'mongo-livedata', 'templating'], 'client');
   api.use(['meteor-platform']);
+  api.addFiles(['common.js']);
+  api.addFiles(['server/bitfinex_publish.js', 'bitfinex-price.js'], "server");
   api.add_files(["client/template.js", "client/template.html"], "client");
+  api.export("bitfinexPriceCollection");
+  api.export(["Bitfinex"], "server");
+  api.export(["bitfinex_price_feed"], "client");
 });
 
 Package.onTest(function(api) {

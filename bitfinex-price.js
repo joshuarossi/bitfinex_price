@@ -1,6 +1,6 @@
 Bitfinex = function(){
   message = {};
-	this.url = 'ws://websocket.bitfinex.com:8086/WSGateway/';
+	this.url = 'http://apws.bitfinex.com/WSGateway';
 	this.WebSocketClient = Npm.require('websocket').client;
 	this.client = new this.WebSocketClient();
   this.messageHandler = Meteor.bindEnvironment(function(message) {
